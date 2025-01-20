@@ -1,0 +1,159 @@
+// 1. First, create a NavMenuItem class to define your navigation structure
+public class NavMenuItem
+{
+    public string Text { get; set; }
+    public string Href { get; set; }
+    public string Icon { get; set; }
+    public string[] Roles { get; set; }
+    public string[] RequiredClaims { get; set; }
+    public bool IsVisible { get; set; } = true;
+}
+
+// 2. Create a Navigation Service
+public interface INavigationService
+{
+    List<NavMenuItem> MenuItems { get; }
+    Task InitializeNavigationAsync(ClaimsPrincipal user);
+}
+
+public class NavigationService : INavigationService
+{
+    public List<NavMenuItem> MenuItems { get; private set; } = new();
+
+    public NavigationService()
+    {
+        // Define your navigation structure
+        MenuItems = new List<NavMenuItem>
+        {
+            new NavMenuItem 
+            { 
+                Text = "Home", 
+                Href = "", 
+                Icon = "oi oi-home"
+                // No roles/claims = visible to all
+            },
+            new NavMenuItem 
+            { 
+                Text = "Admin Dashboard", 
+                Href = "admin",
+                Icon = "oi oi-dashboard",
+                Roles = new[] { "Admin" }
+            },
+            new NavMenuItem 
+            { 
+                Text = "Reports", 
+                Href = "reports",
+                Icon = "oi oi-bar-chart",
+                Roles = new[] { "Manager", "Admin" },
+                RequiredClaims = new[] { "CanViewReports" }
+            },
+            new NavMenuItem 
+            { 
+                Text = "User Management", 
+                Href = "users",
+                Icon = "oi oi-people",
+                Roles = new[] { "Admin" },
+                RequiredClaims = new[] { "CanManageUsers" }
+            }
+        };
+    }
+
+    public async Task InitializeNavigationAsync(ClaimsPrincipal user)
+    {
+        foreach (var item in MenuItems)
+        {
+            item.IsVisible = IsMenuItemVisible(item, user);
+        }
+    }
+
+    private bool IsMenuItemVisible(NavMenuItem item, ClaimsPrincipal user)
+    {
+        // If no roles or claims are specified, the item is visible to all authenticated users
+        if (item.Roles == null && item.RequiredClaims == null)
+            return true;
+
+        // Check roles
+        if (item.Roles != null && !item.Roles.Any(r => user.IsInRole(r)))
+            return false;
+
+        // Check claims
+        if (item.RequiredClaims != null && 
+            !item.RequiredClaims.All(c => user.HasClaim(claim => claim.Type == c)))
+            return false;
+
+        return true;
+    }
+}
+
+// 3. Register the service in Program.cs
+builder.Services.AddScoped<INavigationService, NavigationService>();
+
+// 4. Create a custom NavMenu component (NavMenu.razor)
+@using Microsoft.AspNetCore.Components.Authorization
+@inject INavigationService NavigationService
+@inject AuthenticationStateProvider AuthStateProvider
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Your App</a>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <AuthorizeView>
+            <Authorized>
+                @foreach (var item in NavigationService.MenuItems.Where(x => x.IsVisible))
+                {
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="@item.Href" Match="NavLinkMatch.All">
+                            <span class="@item.Icon" aria-hidden="true"></span> @item.Text
+                        </NavLink>
+                    </div>
+                }
+            </Authorized>
+            <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="login">
+                        <span class="oi oi-account-login" aria-hidden="true"></span> Login
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        await NavigationService.InitializeNavigationAsync(authState.User);
+    }
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
+
+// 5. Mainlayout.razor - Make sure your NavMenu is included
+@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <LoginDisplay />
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>

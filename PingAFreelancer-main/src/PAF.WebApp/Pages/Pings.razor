@@ -1,0 +1,134 @@
+@page "/pings"
+@inject CustomAuthStateProvider AuthStateProvider
+@inject IFreelancerService FreelanceMeService
+@inject NavigationManager NavigationManager
+@using System.Security.Claims
+@using PAF.MobileApp.Models
+
+<AuthorizeView>
+    <Authorized>
+        <h1>Your pings...</h1>
+        @if (IsFreelancer)
+        {
+            foreach (var interaction in Interactions)
+            {
+                <div class="alert alert-danger shadow-lg rounded-3">
+                    <h3 class="alert-heading text-danger">
+                        Client @interaction.ClientFirstName @interaction.ClientLastName
+                    </h3>
+                    <p class="text-muted">
+                        📱 @interaction.ClientPhoneNumber 
+                    </p>
+                    <p class="text-muted">
+                        📍 @interaction.Distance km away
+                    </p>
+                    <p class="text-muted">
+                        📅 pinged on @interaction.InteractionDate
+                    </p>
+                    <button 
+                        class="btn btn-primary"
+                        style="width: 100%"
+                        @onclick="() => HandleContract(interaction.ClientPhoneNumber)">
+                        <h2>Begin a contract</h2>
+                    </button>
+                </div>
+
+            }
+        }
+        else
+        {
+            foreach (var interaction in Interactions)
+            {
+                <div class="alert alert-danger shadow-lg rounded-3">
+                    <img src="@(interaction.FreelancerPhotoPath + ".png")" style="width: 100px;height: 100px;border-radius:50%">
+                    <h3 class="alert-heading text-danger">
+                        Freelancer @interaction.FreelancerFirstName @interaction.FreelancerLastName
+                    </h3>
+                    <p class="text-muted fs-3 mb-1">
+                        📱 @interaction.FreelancerPhoneNumber 
+                    </p>
+                    <p class="text-muted fs-3 mb-1">
+                       📍 @interaction.Distance km away
+                    </p>
+                    <p class="text-muted fs-3 mb-1">
+                        📅 pinged on @interaction.InteractionDate
+                    </p>
+                </div>
+            }
+        }
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+
+    private bool IsFreelancer = false;
+    private bool IsClient = false;
+    private List<PingRequest> PingsMade = new List<PingRequest>();
+    private string userId;
+    private List<InteractionDetails> Interactions = new();
+    private List<PingRequest> PingsFiltered = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        IsClient = user.HasClaim("CanPing", "true");
+        IsFreelancer = user.HasClaim("CanContract", "true");
+        userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        PingsMade = (await FreelanceMeService.GetPings(userId)).ToList();
+
+        PingsFiltered = GetFilteredPings(PingsMade);
+
+        foreach (var ping in PingsFiltered)
+        {
+            var interaction = await FreelanceMeService.GetInteractionDetails(
+                ping.FreelancerId, 
+                ping.ClientId);
+            interaction.InteractionDate = ping.DatePinged;
+            Interactions.Add(interaction);
+        }
+    }
+
+    private async Task HandleContract(string phoneNumber)
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user.HasClaim("CanContract", "true"))
+        {
+            var contract = new Contract
+            {
+                FreelancerId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value,
+                PhoneNumber = phoneNumber,
+                DateStarted = DateTime.Now
+            };
+            await FreelanceMeService.ContractClient(contract);
+        }
+        NavigationManager.NavigateTo("/contracts");
+    }
+
+    private List<PingRequest> GetFilteredPings(List<PingRequest> unfilteredPings)
+    {
+        List<PingRequest> FilteredPings = new();
+        
+        foreach (var unfilteredPing in unfilteredPings)
+        {
+            var existing = FilteredPings.FirstOrDefault(ping => 
+                ping.ClientId == unfilteredPing.ClientId &&
+                ping.FreelancerId == unfilteredPing.FreelancerId);
+
+            if (existing == null)
+            {
+                FilteredPings.Add(unfilteredPing);
+            }
+
+            else if (unfilteredPing.DatePinged > existing.DatePinged)
+            {
+                FilteredPings.Remove(existing);
+                FilteredPings.Add(unfilteredPing);
+            }
+        }
+
+        return FilteredPings;
+    }
+}

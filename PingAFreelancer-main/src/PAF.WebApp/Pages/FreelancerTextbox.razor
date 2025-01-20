@@ -1,0 +1,60 @@
+@using PAF.MobileApp.Models
+@using PAF.MobileApp.Services
+
+@page "/{domainId:int}/{freelancerId}"
+
+@if (Freelancer == null) return;
+
+<div class="card mx-auto"
+        style="height: 418px;
+            width: 418px;
+            border-radius: 6%;
+            border-color: @($"{Freelancer.Expertise.BorderColor}");
+            border-width: 16px;">
+    <img class="my-auto card-img-top"
+            src=@($"{Freelancer.Expertise.PhotoPath}.png")
+            style="width: auto; height: auto; max-height: 100%;">
+
+</div>
+<h3 class="card-text text-center mt-3">
+    <div>
+        <a href=@($"/domains/{DomainId}/freelancers/{FreelancerId}")>
+            <img src=@($"{Freelancer.PhotoPath}.png")
+                style="border-radius: 50%;
+                        height: 280px;
+                        width: auto;
+                        border: 16px solid @($"{Freelancer.Expertise.BorderColor}");
+                        ">
+        </a>
+    </div>
+
+    
+    @Freelancer.FirstName @Freelancer.LastName <br>
+     <div style="font-weight: 300; font-size: 22px;">
+        @Freelancer.Expertise.ExpertiseName <br>
+     </div>
+     <div style="font-weight: 300; font-size: 22px;">
+        @Freelancer.HourlyRate SAR/hr<br>
+        @* @Freelancer.Email <br> *@
+        @Freelancer.PhoneNumber <br>
+     </div>
+</h3>
+
+@code
+{
+    [Parameter]
+    public string FreelancerId { get; set; }
+
+    [Parameter]
+    public int DomainId { get; set; }
+
+    [Inject]
+    public IFreelancerService FreelanceMeService { get; set; }
+
+    public Freelancer Freelancer { get; set; } = null!;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Freelancer = await FreelanceMeService.GetFreelancerByIdAsync(DomainId, FreelancerId);
+    }
+}

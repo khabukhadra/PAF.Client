@@ -1,0 +1,73 @@
+@page "/account"
+@inject CustomAuthStateProvider AuthStateProvider
+@inject IFreelancerService FreelanceMeService
+@inject NavigationManager NavigationManager
+@using System.Security.Claims
+@using PAF.MobileApp.Models
+@inject IAuthService AuthService
+
+<AuthorizeView>
+    <Authorized>
+        <h1>
+            Congrats, @fullName you have completed @numHires contracts with members
+            on Ping A Freelancer!
+        </h1>
+
+        @foreach (var contract in ContractsMade)
+        {
+<div class="alert alert-success shadow-lg rounded-3 p-4">
+    <p class="text-muted fs-3 mb-1">
+        📅 Started @contract.DateStarted
+    </p>
+    <p class="text-muted fs-3 mb-1">
+        📅 Completed @contract.DateCompleted
+    </p>
+    <p class="text-muted fs-3 mb-1">
+        ⭐️ Rated @contract.Rating / 5
+    </p>
+    <p class="text-muted fs-3 mb-1">
+        ⏰ Hours Contracted @contract.HoursContracted hr
+    </p>
+    <p class="text-muted fs-3 mb-1">
+        💰 Amount Paid @contract.AmountPaid SAR
+    </p>
+</div>
+        }
+                <button @onclick="SignOut" class="btn btn-danger" style="width: 100%">
+            <h1>Sign out</h1>
+        </button>
+        
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+
+    private bool IsFreelancer = false;
+    private bool IsClient = false;
+    private string userId;
+    private List<Contract> ContractsMade = new();
+    private int numHires;
+    private string fullName;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        IsClient = user.HasClaim("CanPing", "true");
+        IsFreelancer = user.HasClaim("CanContract", "true");
+        var fullName = user.FindFirst(ClaimTypes.Name)?.Value;
+        userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        ContractsMade = (await FreelanceMeService.GetContracts(userId)).ToList();
+        
+        numHires = ContractsMade.Count;
+        foreach (var contract in ContractsMade)
+        {
+        }
+    }
+    public async Task SignOut()
+    {
+        await AuthService.LogoutAsync();
+        NavigationManager.NavigateTo("/");
+    }
+}

@@ -1,0 +1,95 @@
+@page "/contracts"
+@inject CustomAuthStateProvider AuthStateProvider
+@inject IFreelancerService FreelanceMeService
+@using System.Security.Claims
+@using PAF.MobileApp.Models
+@inject NavigationManager NavigationManager
+
+<AuthorizeView>
+    <Authorized>
+        <h1>You have an active contract with...</h1>
+        @if (IsFreelancer)
+        {
+            foreach (var interaction in Interactions)
+            {
+                <div class="alert alert-warning shadow-lg rounded-3">
+                    <h3 class="alert-heading text-warning">
+                        Client @interaction.ClientFirstName @interaction.ClientLastName
+                    </h3>
+                    <p class="text-muted fs-3 mb-1">
+                        📱 @interaction.ClientPhoneNumber 
+                    </p>
+                    <p class="text-muted fs-3 mb-1">
+                        📍 @interaction.Distance km away
+                    </p>
+                    <p class="text-muted fs-3 mb-1">
+                        📅 contracted on @interaction.InteractionDate
+                    </p>
+                </div>
+            }
+        }
+        else
+        {
+            foreach (var interaction in Interactions)
+            {
+                <div class="alert alert-warning shadow-lg rounded-4">
+                    <img src="@(interaction.FreelancerPhotoPath + ".png")" style="width: 100px;height: 100px;border-radius:50%">
+                    <h3 class="alert-heading text-warning">
+                        Freelancer @interaction.FreelancerFirstName @interaction.FreelancerLastName
+                    </h3>
+                    <p class="text-muted fs-3 mb-1">
+                        📱 @interaction.FreelancerPhoneNumber 
+                    </p>
+                    <p class="text-muted fs-3 mb-1">
+                       📍 @interaction.Distance km away
+                    </p>
+                    <p class="text-muted fs-3 mb-1">
+                        📅 contracted on @interaction.InteractionDate
+                    </p>
+                    <button 
+                        class="btn btn-primary"
+                        style="width: 100%"
+                        @onclick="() => HandleEndContract(interaction.FreelancerPhoneNumber)">
+                        <h2>End contract</h2>
+                    </button>
+                </div>
+            }
+        }
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+    private bool IsFreelancer = false;
+    private bool IsClient = false;
+    private List<Contract> ContractsMade = new();
+    private string userId;
+    private List<InteractionDetails> Interactions = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        IsClient = user.HasClaim("CanPing", "true");
+        IsFreelancer = user.HasClaim("CanContract", "true");
+        userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        ContractsMade = (await FreelanceMeService.GetContracts(userId)).ToList();
+        foreach (var contract in ContractsMade)
+        {
+            if (contract.HoursContracted == null)
+            {
+                var interaction = await FreelanceMeService.GetInteractionDetails(
+                    contract.FreelancerId, 
+                    contract.ClientId);
+                interaction.InteractionDate = contract.DateStarted;
+                Interactions.Add(interaction);
+            }
+        }
+    }
+
+    private async Task HandleEndContract(string phoneNumber)
+    {
+        NavigationManager.NavigateTo($"rate/{phoneNumber}");
+    }
+
+}

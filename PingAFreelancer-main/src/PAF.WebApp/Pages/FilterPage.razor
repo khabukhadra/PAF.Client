@@ -1,0 +1,108 @@
+@using PAF.MobileApp.Models
+@using PAF.MobileApp.Services
+@page "/filter"
+<h6>
+    <div class="container" style="max-width: 1000px;">
+        <h5 class="text-center">Filter by expertise</h5>
+        <form>
+            <div class="form-group mb-5"> 
+                <label for="sel">Expertise:</label>
+                <select id="sel" class="form-select form-select-lg form-control form-control-lg" @onchange="Selected">
+                    <option value=0></option>
+                    @foreach (var expertise in Expertises.Items)
+                    {
+                        <option value=@expertise.Id>@expertise.ExpertiseName</option>
+                    }
+                </select>
+            </div>
+        </form>
+
+
+        <h5 class="text-center">And by freelancer details</h5>
+        <EditForm Model="@FreelancerModel" OnValidSubmit="Submit">
+
+            <DataAnnotationsValidator>
+            </DataAnnotationsValidator>
+            <ValidationSummary>
+            </ValidationSummary>
+
+            <div class="form-group mb-3">
+                <label>Name</label>
+                <InputText 
+                    class="form-control form-control-lg"
+                    @bind-Value="FreelancerModel.Name" />
+            </div>
+            <div class="form-group mb-3">    
+                <label>Email</label>
+                <InputText @bind-Value = "FreelancerModel.Email" 
+                           class="form-control form-control-lg" />
+            </div>
+            <div class="row">
+                <div class="col form-group mb-3">
+                    <label>Hourly Rate Upper Bound</label>
+                    <InputNumber @bind-Value = "FreelancerModel.MaxHourlyRate"
+                                class="form-control form-control-lg" />
+                </div>
+                <div class="col form-group mb-3">
+                    <label>Rating Lower Bound</label>
+                    <InputNumber @bind-Value = "FreelancerModel.MinRating"
+                                class="form-control form-control-lg" />
+                </div>               
+            <div class="col form-group mb-3">
+                    <label>Max Distance</label>
+                    <InputNumber @bind-Value = "FreelancerModel.MaxDistance"
+                                class="form-control form-control-lg" />
+                </div>   
+
+            </div>
+
+            <button type="submit" class="btn btn-success">Filter</button>
+
+        </EditForm>
+    </div>
+</h6>
+
+
+@FreelancerModel.Name
+@FreelancerModel.ExpertiseName
+@FreelancerModel.Email
+@FreelancerModel.MaxHourlyRate 
+@FreelancerModel.MinRating
+@FreelancerModel.MaxDistance
+
+@if (FilteredFreelancers == null) return;
+
+@foreach (var ff in FilteredFreelancers.Items)
+{
+    @ff.FirstName
+}
+
+@code
+{
+    [Inject] IFreelancerService Service { get; set; }
+    
+    public FreelancerFiltered FreelancerModel { get; set; } = new();
+
+    public Expertises Expertises { get; set; } = new();
+    
+    public Expertise Expertise { get; set; } = new();
+
+    public Freelancers FilteredFreelancers { get; set; }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Expertises = await Service.GetExpertisesAsync();
+    }
+
+    private async Task Selected(ChangeEventArgs e)
+    {
+        var expertise = Expertises.Items.Single(expertise => expertise.Id.ToString() == e.Value.ToString());
+        FreelancerModel.ExpertiseName = expertise.ExpertiseName;
+    }
+
+    public async Task Submit()
+    {
+        var result = await Service.CreateFilteredFreelancer(FreelancerModel);
+        FilteredFreelancers = result;
+    }
+}

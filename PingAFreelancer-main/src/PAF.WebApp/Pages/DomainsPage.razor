@@ -1,0 +1,58 @@
+﻿@page "/domainspage"
+@using PAF.MobileApp.Services
+@using PAF.MobileApp.Models
+
+@if (Domains == null)
+{
+    return;
+}
+<div class="container" style="max-width: 90%;">
+    <h1 class="text-center display-2">Pick a Domain</h1>
+    <br/>
+    <div class="card-deck row">
+        @foreach (var domain in Domains.Items)
+        {
+            <div class="card mx-auto"
+                    style="
+                        width: 95%; 
+                        border-radius: 6%; 
+                        border-color: @($"{domain.BorderColor}");
+                        border-width: 16px;">
+                <a href=@($"domains/{domain.Id}/freelancers")>
+                    <img class="card-img-top align-middle my-auto" 
+                            src=@($"{domain.PhotoPath}.png")
+                            style="width: 100%; height: auto;">
+                </a>
+            </div>
+            <h1 class="card-text text-center mb-5" >
+                @domain.DomainName
+            </h1>
+            @* <p class="text-center">
+                <FMC.WebApp.Pages.Components.DomainSummary DomainId=@domain.Id />
+            </p> *@
+        }
+    </div>
+</div>
+
+@code 
+{
+    [Inject] IFreelancerService FreelanceMeService { get; set; }
+
+    public Freelancers Freelancers { get; set; } = null!;
+
+    public Domains Domains { get; set; } = null!;
+
+    public int Number { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Domains = await FreelanceMeService.GetDomainsAsync();
+    }
+
+    public async Task NumberOfFreelancers(int domainId)
+    {
+        Freelancers = await FreelanceMeService.GetFreelancersAsync(domainId);
+        this.Number = Freelancers.Items.Count();
+        StateHasChanged();
+    }
+}

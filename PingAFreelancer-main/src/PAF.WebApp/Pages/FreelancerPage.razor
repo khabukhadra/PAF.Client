@@ -1,0 +1,73 @@
+@page "/domains/{domainId:int}/freelancers/{freelancerId}"
+@using PAF.MobileApp.Models
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@inject NavigationManager NavigationManager
+
+@if (Freelancer == null) return;
+<div class="container text-center">
+    <img src=@($"{Freelancer.PhotoPath}.png")
+        style="border-radius: 50%; height: 300px; width: 300px;">
+    <h2>Hello, my name is @($"{Freelancer.FirstName} {Freelancer.LastName} and I am a {Freelancer.Expertise.ExpertiseName}")</h2>
+    <h5>
+    Member since @Freelancer.DateRegistered <br>
+    @Freelancer.Email <br>
+    @Freelancer.HourlyRate SAR<br>
+    @Freelancer.Rating / 5<br>
+    @Freelancer.FulfilledContracts fulfilled contracts <br>
+    Hours Billed: @Freelancer.HoursBilled <br>
+    Lat Long: (@Freelancer.Latitude, @Freelancer.Longitude) <br>
+    Active: @((Freelancer.IsActive) ? "Yes" : "No")
+    </h5>
+    <br/>
+    <br/>
+    <EditForm Model="@Ping" OnValidSubmit="@Handler">
+        <button 
+            class="btn btn-primary" 
+            style="width: 300px; height: 100px;"
+            @onclick="Handler">
+            <h1>Ping Me!</h1>
+        </button>
+    </EditForm>
+</div>
+
+@code
+{
+    [Parameter]
+    public int DomainId { get; set; }
+
+    [Parameter]
+    public string FreelancerId { get; set; }
+
+    [Inject]
+    public IFreelancerService FreelanceMeService { get; set; }
+
+    [Inject]
+    public HttpClient HttpClient { get; set; }
+
+    [Inject]
+    public CustomAuthStateProvider AuthenticationStateProvider { get; set; }
+
+    public Freelancer Freelancer { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Freelancer = await FreelanceMeService.GetFreelancerByIdAsync(DomainId, FreelancerId);
+    }
+
+    public PingRequest Ping { get; set; } = new();
+
+    private async Task Handler()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user.HasClaim("CanPing", "true"))
+        {
+            Ping.DatePinged = DateTime.Now;
+            Ping.FreelancerId = FreelancerId;
+            Ping.ClientId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            await FreelanceMeService.PingFreelancer(Ping);
+        }
+        NavigationManager.NavigateTo("/pings");
+    }
+}

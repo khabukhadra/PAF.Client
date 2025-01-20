@@ -1,0 +1,18 @@
+Containing @Freelancers freelancers
+
+@code
+{
+    [Inject] PAF.MobileApp.Services.IFreelancerService FreelanceMeService { get; set; }
+
+    [Parameter]
+    public int DomainId { get; set; }
+
+    public int Freelancers { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Freelancers = (await FreelanceMeService.GetFreelancersAsync(DomainId)).Items.Count();
+
+    }
+
+}

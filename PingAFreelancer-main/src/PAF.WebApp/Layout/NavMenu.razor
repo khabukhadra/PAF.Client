@@ -1,0 +1,72 @@
+﻿@inject CustomAuthStateProvider AuthStateProvider
+@inject INavService NavService
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using PAF.WebApp.Auth
+@using PAF.WebApp.Services
+@using PAF.WebApp.Models
+@using System.Security.Claims
+@inject INavService NavService
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">PAF.WebApp</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <AuthorizeView>
+        <Authorized>
+            @if (_menuItems?.Any() == true)
+            {
+                <nav class="flex-column">
+                    @foreach (var item in _menuItems)
+                    {
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="@item.Url" Match="NavLinkMatch.All">
+                                <span class="item.Icon" aria-hidden="true"></span> @item.Text
+                            </NavLink>
+                        </div>
+                    }
+                </nav>
+            }
+        </Authorized>
+        <NotAuthorized>
+            <nav class="flex-column">
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span>Home
+                    </NavLink>
+                </div>
+            </nav>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private List<NavItem> _menuItems;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _menuItems = await NavService.GetAuthorizedMenuItemsAsync();
+
+    }
+
+
+
+
+
+}

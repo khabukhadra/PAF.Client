@@ -1,0 +1,366 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.sidebar {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row ::deep a, .top-row ::deep .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row ::deep a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row {
+        justify-content: space-between;
+    }
+
+    .top-row ::deep a, .top-row ::deep .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth ::deep a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row, article {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+.my-body {
+    display: flex;
+    justify-content: center;
+    padding: 25vh 0;
+}
+.my-container {
+    width: min(100vw, 800px);
+    aspect-ratio: 2/3;
+    background-color: white;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+::deep .responsive-container {
+    padding: 25vh;
+    width: min(100vw, 800px);
+    aspect-ratio: 2/3;
+    background-color: #eeeeee;
+    padding: 2rem;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 0;
+}
+
+::deep .responsive-container::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -250px;
+    right: -2250px;
+    bottom: -250px;
+    background-image: url('/wwwroot/images/IMG_0035.JPG');  /* Note the leading forward slash */
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* body {
+    margin: 0;
+    padding: 25vh 0;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+} */
+
+body {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height:100vh;
+}
+
+.container-wrapper {
+    position: relative;  /* For absolute positioning of overlay image */
+    width: min(100vw, 300px);
+    aspect-ratio: 2/3;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.overlay-imageb4 {
+    position: absolute;
+    top: -10%;  /* Adjust to control how much the image overlaps */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;  /* Adjust size relative to container */
+    height: auto;
+    z-index: 1;  /* Ensure image appears above the container */
+    /* Optional: add drop shadow to make image stand out */
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.fixed-container {
+    position: fixed;
+    width: 768px;
+    height: 1536px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.overlay-image {
+    position: relative;
+    width: 768px;
+    height: 1536px;
+    object-fit: cover;
+    margin: -1.5rem;
+    border-radius: 0.5rem;
+}
+
+.content {
+    position: relative;
+    margin-top: -1536px;
+}
+
+.container2 {
+    position: fixed;
+    width: 768px;
+    height: 1536px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.imgg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.container3 {
+    width: 500px;  /* or any fixed width */
+    height: 400px; /* or any fixed height */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+.container29 {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+
+  .container30 {
+    width: 800px;
+    height: 80vh; /* Changed to viewport height */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    position: fixed;
+    top: 10vh; /* Changed from 50% to fixed distance from top */
+    left: 50%;
+    transform: translateX(-50%); /* Removed vertical transform */
+    margin-bottom: 10vh; 
+  }
+
+  .container41 {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container42 {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container43 {
+    top: 70%;
+    height: 1536px;
+    width: 768px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    padding: 1rem;
+  }
+
+
+  .container44 {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .container45 {
+    width: 500px;
+    height: 1250px;
+    overflow-y: auto;
+    border: 1px solid #FFFFFF;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .floating-imagei {
+    position: fixed;
+    width: 800px;   
+    height: 1550px;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  .navbar {
+    overflow: hidden;
+    position: fixed;
+    background-color: white;
+    padding-top: 10%;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .mynavbar {
+    position: fixed;
+    width: 800px; /* Match image width */
+    height: 60px;
+    background-color: #333;
+    top: calc(49% + 775px); /* Aligned with top of image: 49% - (1550px/2) */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001; /* Above the image */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.image-nav-wrapper {
+    position: fixed;
+    width: 800px;
+    height: 1600px; /* Image height + navbar height */
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.navbar {
+    position: absolute;
+    width: 80%;
+    padding-top: 30px;
+    height: 100px;
+    top: 1390px;
+    left: 80px;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-around;
+    color: black;
+    pointer-events: auto; /* Re-enable pointer events for navbar */
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+}

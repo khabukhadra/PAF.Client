@@ -1,0 +1,39 @@
+@page "/all"
+@using PAF.MobileApp.Models
+@using PAF.MobileApp.Services
+
+@if (Freelancers == null) return;
+
+<div class="container-fluid" style="max-width: 1000px;">
+    <div class="card-deck row">
+        @foreach (var freelancer in Freelancers.Items)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        Expertise: @freelancer.Expertise.ExpertiseName
+                    </p>
+                    Competencies:
+                    @foreach (var competency in freelancer.OtherExpertises)
+                    {
+                        <p>
+                            @competency
+                        </p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code
+{
+    [Inject] IFreelancerService Service { get; set; }
+
+    public Freelancers Freelancers { get; set; } = null;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Freelancers = await Service.GetAllFreelancersAsync();
+    }
+}

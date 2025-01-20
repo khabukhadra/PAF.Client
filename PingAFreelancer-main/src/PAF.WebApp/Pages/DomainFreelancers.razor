@@ -1,0 +1,36 @@
+@using PAF.MobileApp.Models
+@using PAF.MobileApp.Services
+
+@page "/domains/{domainId:int}/freelancers/"
+
+@if (Freelancers == null) return;
+
+<div class="container" style="max-width: 100%;">
+    <h1 class="text-center display-2">Pick a Freelancer</h1>
+    <br/><br/><br/><br/>
+    <div class="card-deck row">
+        @foreach (var freelancer in Freelancers.Items)
+        {
+            <div style="padding-bottom: 100px;">
+                <FreelancerTextbox FreelancerId=@freelancer.Id
+                                   DomainId=@DomainId />
+            </div>
+
+        }
+    </div>
+</div>
+
+@code
+{
+    [Inject] IFreelancerService FreelanceMeService { get; set; }
+
+    public Freelancers Freelancers { get; set; }
+
+    [Parameter]
+    public int DomainId { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Freelancers = await FreelanceMeService.GetFreelancersAsync(DomainId);
+    }
+}

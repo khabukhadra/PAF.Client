@@ -1,0 +1,70 @@
+﻿@inherits LayoutComponentBase
+
+@inject AuthenticationStateProvider AuthStateProvider
+@using Microsoft.AspNetCore.Components.Authorization
+<div class="page">
+    @* <div class="sidebar">
+        <NavMenu />
+    </div> *@
+
+    <main>
+        @* <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div> *@
+
+        @* <div class="my-body">
+
+        <article class="content px-4 my-container">
+            <body>
+                <div class="container-wrapper">
+                            <img 
+            src="IMG" 
+            alt="Overlay Image" 
+            class="overlay-image"
+        >
+                    <div class="container">
+                        @Body
+                    </div>
+                </div>
+            </body>
+
+            </article>
+        </div> *@
+
+        @* <body>
+            <div class="container-wrapper">
+                <img src="
+            </div>
+        </body> *@
+<body>
+    <div class="image-nav-wrapper">
+                            <AuthorizeView>
+                                <Authorized>
+                                <nav class="navbar">
+                                    <a href="/domainspage" class="active">Browse</a>
+                                    <a href="/pings">Pings</a>
+                                    <a href="/contracts">Contracts</a>
+                                    <a href="/account">Account</a>
+                                    </nav>
+
+                                </Authorized>
+
+                            </AuthorizeView>
+
+
+    <img src="https://freelanceme.blob.core.windows.net/container1/Shutterstock_2330515991.png" class="floating-imagei">
+
+    </div>
+            <article class="container45">
+                        @Body
+
+        </article>
+
+</body>
+
+
+
+
+    </main>
+
+</div>
