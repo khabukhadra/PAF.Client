@@ -6,7 +6,7 @@
 ### A .NET Blazor WebAssembly single-page app. A one-stop shop to your neighborhood's handymen, technicians, and craftsmen.
 
 <div>
-  <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="330" style="text-align:center;"/>
+  <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="330" style="align=center;"/>
 </div>
 
 <img src="https://freelanceme.blob.core.windows.net/container1/domains.png" align="center" width="300" />
