@@ -9,20 +9,20 @@
   <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="330" style="align=center;"/>
 </div>
 
-<img src="https://freelanceme.blob.core.windows.net/container1/domains.png" align="center" width="300" />
+<img src="https://freelanceme.blob.core.windows.net/container1/domains.png" align="center" width="500" />
 <img src="https://freelanceme.blob.core.windows.net/container1/domains4.png" align="center" width="333" />
-<img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" align="center" width="300" />
-<img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" align="center" width="300" />
+<img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" align="center" width="500" />
+<img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" align="center" width="500" />
 
-<img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" align="center" width="300" />
+<img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" align="center" width="500" />
 
-<img src="https://freelanceme.blob.core.windows.net/container1/pingghada.png" align="center" width="300" />
+<img src="https://freelanceme.blob.core.windows.net/container1/pingghada.png" align="center" width="500" />
 
-<img src="https://freelanceme.blob.core.windows.net/container1/gpings2.png" align="center" width="300" />
+<img src="https://freelanceme.blob.core.windows.net/container1/gpings2.png" align="center" width="500" />
 
-<img src="https://freelanceme.blob.core.windows.net/container1/danacontrrats.png" align="center" width="300" />
+<img src="https://freelanceme.blob.core.windows.net/container1/danacontrrats.png" align="center" width="500" />
 
-<img src="https://freelanceme.blob.core.windows.net/container1/rate.png" align="center" width="300" />
+<img src="https://freelanceme.blob.core.windows.net/container1/rate.png" align="center" width="500" />
 
 
 <!--
