@@ -6,63 +6,7 @@
 ### A .NET Blazor WebAssembly single-page app. A one-stop shop to your neighborhood's handymen, technicians, and craftsmen.
 
 
-###
-    <div align="center">
-        <!-- Row 1 -->
-        <table border="0" cellpadding="10" cellspacing="0">
-            <tr>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="350" alt="Register" />
-                </td>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/domains.png" width="350" alt="Domains" />
-                </td>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/domains4.png" width="350" alt="Domains 4" />
-                </td>
-            </tr>
-        </table>
-        
-        <!-- Row 2 -->
-        <table border="0" cellpadding="10" cellspacing="0">
-            <tr>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" width="350" alt="Domains 3" />
-                </td>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" width="350" alt="Meshal" />
-                </td>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" width="350" alt="Ghada" />
-                </td>
-            </tr>
-        </table>
-        
-        <!-- Row 3 -->
-        <table border="0" cellpadding="10" cellspacing="0">
-            <tr>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/pingghada.png" width="350" alt="Ping Ghada" />
-                </td>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/gpings2.png" width="350" alt="G Pings 2" />
-                </td>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/danacontrrats.png" width="350" alt="Dana Contracts" />
-                </td>
-            </tr>
-        </table>
-        
-        <!-- Row 4 -->
-        <table border="0" cellpadding="10" cellspacing="0">
-            <tr>
-                <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/rate.png" width="350" alt="Rate" />
-                </td>
-            </tr>
-        </table>
-    </div>
-###
+
 <div>
   <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="800" style="align=center;"/>
 </div>
