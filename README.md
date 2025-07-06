@@ -1,4 +1,4 @@
-![me](https://github.com/khabukhadra/PAF.Client/blob/main/Freelancers.mp4)
+![me](https://github.com/khabukhadra/PAF.Client/blob/main/Freelancers(4).gif)
 # 'Ping A Freelancer'
 
 <img src="https://freelanceme.blob.core.windows.net/container1/55579_Ping.png" align="center" />
