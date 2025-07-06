@@ -57,6 +57,7 @@
     </div>
 </body>
 
+<!--
 <div>
   <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="800" style="align=center;"/>
 </div>
