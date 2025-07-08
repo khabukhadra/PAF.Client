@@ -1,6 +1,3 @@
-
-
-
 ![me](https://github.com/khabukhadra/PAF.Client/blob/main/Freelancers(4).gif)
 # 'Ping A Freelancer'
 
@@ -10,54 +7,48 @@
 
 <body>
     <div align="center">
-        <!-- First image on its own row -->
+        <!-- Row 1 -->
         <table border="0" cellpadding="10" cellspacing="0">
             <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="350" alt="Register" />
                 </td>
-            </tr>
-        </table>
-        
-        <!-- Row 1 - Three images -->
-        <table border="0" cellpadding="10" cellspacing="0">
-            <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/domains.png" width="350" alt="Domains" />
                 </td>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/domains4.png" width="350" alt="Domains 4" />
                 </td>
+            </tr>
+        </table>        
+        <table border="0" cellpadding="10" cellspacing="0">
+            <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" width="350" alt="Domains 3" />
                 </td>
-            </tr>
-        </table>
-        
-        <!-- Row 2 - Three images -->
-        <table border="0" cellpadding="10" cellspacing="0">
-            <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" width="350" alt="Meshal" />
                 </td>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" width="350" alt="Ghada" />
                 </td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="10" cellspacing="0">
+            <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/pingghada.png" width="350" alt="Ping Ghada" />
                 </td>
-            </tr>
-        </table>
-        
-        <!-- Row 3 - Three images -->
-        <table border="0" cellpadding="10" cellspacing="0">
-            <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/gpings2.png" width="350" alt="G Pings 2" />
                 </td>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/danacontrrats.png" width="350" alt="Dana Contracts" />
                 </td>
+            </tr>
+        </table>
+                <table border="0" cellpadding="10" cellspacing="0">
+            <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/rate.png" width="350" alt="Rate" />
                 </td>
@@ -92,10 +83,10 @@
 
 Here are some ideas to get you started:
 
-- 🔭 I'm currently working on ...
-- 🌱 I'm currently learning ...
-- 👯 I'm looking to collaborate on ...
-- 🤔 I'm looking for help with ...
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
 - 💬 Ask me about ...
 - 📫 How to reach me: ...
 - 😄 Pronouns: ...
