@@ -11,13 +11,13 @@
         <table border="0" cellpadding="10" cellspacing="0">
             <tr>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="400" alt="Register" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="430" alt="Register" />
                 </td>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/domains.png" width="350" alt="Domains" />
                 </td>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/domains4.png" width="350" alt="Domains 4" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/domains4.png" width="400" alt="Domains 4" />
                 </td>
             </tr>
         </table>        
