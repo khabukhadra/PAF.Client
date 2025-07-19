@@ -11,7 +11,7 @@
         <table border="0" cellpadding="10" cellspacing="0">
             <tr>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="430" alt="Register" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="435" alt="Register" />
                 </td>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/domains.png" width="370" alt="Domains" />
@@ -24,10 +24,10 @@
         <table border="0" cellpadding="10" cellspacing="0">
             <tr>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" width="350" alt="Domains 3" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" width="330" alt="Domains 3" />
                 </td>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" width="350" alt="Meshal" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" width="330" alt="Meshal" />
                 </td>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" width="350" alt="Ghada" />
