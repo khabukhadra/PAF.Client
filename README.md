@@ -11,7 +11,7 @@
         <table border="0" cellpadding="10" cellspacing="0">
             <tr>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="350" alt="Register" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="400" alt="Register" />
                 </td>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/domains.png" width="350" alt="Domains" />
