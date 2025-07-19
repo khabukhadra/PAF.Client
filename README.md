@@ -8,7 +8,7 @@
 <body>
     <div align="center">
         <!-- Row 1 -->
-        <table border="0" cellpadding="10" cellspacing="0">
+        <table border="0" cellpadding="10" cellspacing="0"  style="border: none";>
             <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/register.png" width="435" alt="Register" />
@@ -21,7 +21,7 @@
                 </td>
             </tr>
         </table>        
-        <table border="0" cellpadding="10" cellspacing="0">
+        <table border="0" cellpadding="10" cellspacing="0" style="border: none";>
             <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" width="320" alt="Domains 3" />
@@ -34,7 +34,7 @@
                 </td>
             </tr>
         </table>
-        <table border="0" cellpadding="10" cellspacing="0">
+        <table border="0" cellpadding="10" cellspacing="0" style="border: none";>
             <tr>
                 <td>
                     <img src="https://freelanceme.blob.core.windows.net/container1/pingghada.png" width="350" alt="Ping Ghada" />
