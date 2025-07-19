@@ -14,17 +14,20 @@
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/register.png" 
            width="435" 
-           alt="Register" />
+           alt="Register" 
+           style="border: none;" />
     </td>
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/domains.png" 
            width="370" 
-           alt="Domains" />
+           alt="Domains" 
+           style="border: none;" />
     </td>
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/domains4.png" 
            width="410" 
-           alt="Domains 4" />
+           alt="Domains 4" 
+           style="border: none;" />
     </td>
   </tr>
 </table>
@@ -35,17 +38,20 @@
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" 
            width="320" 
-           alt="Domains 3" />
+           alt="Domains 3" 
+           style="border: none;" />
     </td>
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" 
            width="320" 
-           alt="Meshal" />
+           alt="Meshal" 
+           style="border: none;" />
     </td>
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" 
            width="330" 
-           alt="Ghada" />
+           alt="Ghada" 
+           style="border: none;" />
     </td>
   </tr>
 </table>
@@ -56,17 +62,20 @@
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/pingghada.png" 
            width="350" 
-           alt="Ping Ghada" />
+           alt="Ping Ghada" 
+           style="border: none;" />
     </td>
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/gpings2.png" 
            width="350" 
-           alt="G Pings 2" />
+           alt="G Pings 2" 
+           style="border: none;" />
     </td>
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/danacontrrats.png" 
            width="350" 
-           alt="Dana Contracts" />
+           alt="Dana Contracts" 
+           style="border: none;" />
     </td>
   </tr>
 </table>
@@ -77,7 +86,8 @@
     <td style="border: none;">
       <img src="https://freelanceme.blob.core.windows.net/container1/rate.png" 
            width="350" 
-           alt="Rate" />
+           alt="Rate" 
+           style="border: none;" />
     </td>
   </tr>
 </table>
