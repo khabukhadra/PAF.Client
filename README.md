@@ -8,89 +8,55 @@
 
 <div align="center">
 
-<!-- Row 1 -->
-<table cellpadding="10" cellspacing="0" style="border: none; border-collapse: collapse;">
-  <tr>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/register.png" 
-           width="435" 
-           alt="Register" 
-           style="border: none;" />
-    </td>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/domains.png" 
-           width="370" 
-           alt="Domains" 
-           style="border: none;" />
-    </td>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/domains4.png" 
-           width="410" 
-           alt="Domains 4" 
-           style="border: none;" />
-    </td>
-  </tr>
-</table>
+<img src="https://freelanceme.blob.core.windows.net/container1/register.png" 
+     width="435" 
+     alt="Register" 
+     style="border: none; display: block; margin: 20px auto;" />
 
-<!-- Row 2 -->
-<table cellpadding="10" cellspacing="0" style="border: none; border-collapse: collapse;">
-  <tr>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" 
-           width="320" 
-           alt="Domains 3" 
-           style="border: none;" />
-    </td>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" 
-           width="320" 
-           alt="Meshal" 
-           style="border: none;" />
-    </td>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" 
-           width="330" 
-           alt="Ghada" 
-           style="border: none;" />
-    </td>
-  </tr>
-</table>
+<img src="https://freelanceme.blob.core.windows.net/container1/domains.png" 
+     width="370" 
+     alt="Domains" 
+     style="border: none; display: block; margin: 20px auto;" />
 
-<!-- Row 3 -->
-<table cellpadding="10" cellspacing="0" style="border: none; border-collapse: collapse;">
-  <tr>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/pingghada.png" 
-           width="350" 
-           alt="Ping Ghada" 
-           style="border: none;" />
-    </td>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/gpings2.png" 
-           width="350" 
-           alt="G Pings 2" 
-           style="border: none;" />
-    </td>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/danacontrrats.png" 
-           width="350" 
-           alt="Dana Contracts" 
-           style="border: none;" />
-    </td>
-  </tr>
-</table>
+<img src="https://freelanceme.blob.core.windows.net/container1/domains4.png" 
+     width="410" 
+     alt="Domains 4" 
+     style="border: none; display: block; margin: 20px auto;" />
 
-<!-- Row 4 -->
-<table cellpadding="10" cellspacing="0" style="border: none; border-collapse: collapse;">
-  <tr>
-    <td style="border: none;">
-      <img src="https://freelanceme.blob.core.windows.net/container1/rate.png" 
-           width="350" 
-           alt="Rate" 
-           style="border: none;" />
-    </td>
-  </tr>
-</table>
+<img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" 
+     width="320" 
+     alt="Domains 3" 
+     style="border: none; display: block; margin: 20px auto;" />
+
+<img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" 
+     width="320" 
+     alt="Meshal" 
+     style="border: none; display: block; margin: 20px auto;" />
+
+<img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" 
+     width="330" 
+     alt="Ghada" 
+     style="border: none; display: block; margin: 20px auto;" />
+
+<img src="https://freelanceme.blob.core.windows.net/container1/pingghada.png" 
+     width="350" 
+     alt="Ping Ghada" 
+     style="border: none; display: block; margin: 20px auto;" />
+
+<img src="https://freelanceme.blob.core.windows.net/container1/gpings2.png" 
+     width="350" 
+     alt="G Pings 2" 
+     style="border: none; display: block; margin: 20px auto;" />
+
+<img src="https://freelanceme.blob.core.windows.net/container1/danacontrrats.png" 
+     width="350" 
+     alt="Dana Contracts" 
+     style="border: none; display: block; margin: 20px auto;" />
+
+<img src="https://freelanceme.blob.core.windows.net/container1/rate.png" 
+     width="350" 
+     alt="Rate" 
+     style="border: none; display: block; margin: 20px auto;" />
 
 </div>
 
