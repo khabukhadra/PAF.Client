@@ -24,13 +24,13 @@
         <table border="0" cellpadding="10" cellspacing="0">
             <tr>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" width="330" alt="Domains 3" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/domains3.png" width="320" alt="Domains 3" />
                 </td>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" width="330" alt="Meshal" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/meshal.png" width="320" alt="Meshal" />
                 </td>
                 <td>
-                    <img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" width="350" alt="Ghada" />
+                    <img src="https://freelanceme.blob.core.windows.net/container1/ghada.png" width="330" alt="Ghada" />
                 </td>
             </tr>
         </table>
