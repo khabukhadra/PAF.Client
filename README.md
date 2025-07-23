@@ -1,4 +1,6 @@
-<!-- ![me](https://github.com/khabukhadra/PAF.Client/blob/main/Freelancers(4).gif) -->
+<!--
+![me](https://github.com/khabukhadra/PAF.Client/blob/main/Freelancers(4).gif) 
+-->
 
 # 'Ping A Freelancer'
 
