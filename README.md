@@ -1,8 +1,8 @@
-![me](https://github.com/khabukhadra/PAF.Client/blob/main/Freelancers(4).gif)
+<!-- ![me](https://github.com/khabukhadra/PAF.Client/blob/main/Freelancers(4).gif) -->
 
 # 'Ping A Freelancer'
 
-<!-- <img src="https://freelanceme.blob.core.windows.net/container1/55579_Ping.png" align="center" /> -->
+ <img src="https://freelanceme.blob.core.windows.net/container1/55579_Ping.png" align="center" /> 
 ### A .NET Blazor WebAssembly single-page app. A one-stop shop to your neighborhood's handymen, technicians, and craftsmen.
 
 <div align="center">
