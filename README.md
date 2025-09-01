@@ -1,10 +1,7 @@
 
 <img src="https://freelanceme.blob.core.windows.net/container1/55579_Ping.png" align="center" /> 
 
-<div align="center">
-  <video src="https://github.com/user-attachments/assets/2eadde6d-d359-4805-be34-5d0286991e07).mov" width="400" />
-</div>
-    
+
 <img src="https://github.com/user-attachments/assets/2eadde6d-d359-4805-be34-5d0286991e07" />
 
 
