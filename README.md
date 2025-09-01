@@ -6,7 +6,7 @@
 
 [![Watch the video](https://raw.githubusercontent.com/khabukhadra/PAF.Client/main/assets/thumbnail.jpg)](https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/video.mp4)
 
-<img src="https://raw.githubusercontent.com/khabukhadra/PAF.Client/main/assets/paf4small.mov" />
+<video src="https://raw.githubusercontent.com/khabukhadra/PAF.Client/main/assets/paf4small.mov" />
 
 <!--
 **khabukhadra/khabukhadra** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
