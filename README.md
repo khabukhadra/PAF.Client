@@ -4,7 +4,7 @@
 ### A .NET Blazor WebAssembly single-page app. A one-stop shop to your neighborhood's handymen, technicians, and craftsmen.###
 
 <div align="center">
-  <video src="[myvideo](https://github.com/user-attachments/assets/2eadde6d-d359-4805-be34-5d0286991e07).mp4" width="400" />
+  <video src="[myvideo](https://github.com/user-attachments/assets/2eadde6d-d359-4805-be34-5d0286991e07).mov" width="400" />
 </div>
     
 <img src="https://github.com/user-attachments/assets/2eadde6d-d359-4805-be34-5d0286991e07.mov" width="500" />
