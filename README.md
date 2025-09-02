@@ -7,6 +7,7 @@
 [![Watch the video](https://raw.githubusercontent.com/khabukhadra/PAF.Client/main/assets/thumbnail.jpg)](https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/video.mp4)
 
 <video src="https://raw.githubusercontent.com/khabukhadra/PAF.Client/main/assets/paf4small.mov" />
+<video src="https://raw.githubusercontent.com/khabukhadra/PAF.Client/main/assets/paf6(2).mp4" />
 
 
 <video src="https://github.com/user-attachments/assets/7de3d6d9-1ddb-4551-82d1-19b5fb22c9ef" />
