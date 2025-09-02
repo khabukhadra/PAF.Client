@@ -13,8 +13,7 @@
 <img src="https://github.com/user-attachments/assets/7de3d6d9-1ddb-4551-82d1-19b5fb22c9ef.mp4" />
 
 
-
-<video src="https://github.com/user-attachments/assets/1479f9e7-54ef-4fb9-99bb-36cc04078363" />
+https://github.com/user-attachments/assets/1479f9e7-54ef-4fb9-99bb-36cc04078363
 
 
 
