@@ -2,7 +2,9 @@
 <img src="https://freelanceme.blob.core.windows.net/container1/55579_Ping.png" align="center" /> 
 -->
 
+<!--
 <video src="https://github.com/user-attachments/assets/2eadde6d-d359-4805-be34-5d0286991e07" width="800"/>
+-->
 
 [![Watch the video](https://raw.githubusercontent.com/khabukhadra/PAF.Client/main/assets/thumbnail.jpg)](https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/video.mp4)
 
